@@ -3,14 +3,15 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import {
-  Archive,
-  CircleDollarSign,
-  Clipboard,
-  Layout,
+  Wrench,
+  Handshake,
+  Info,
+  House,
   LucideIcon,
   Menu,
-  SlidersHorizontal,
-  User,
+  CalendarClock,
+  ReceiptText,
+  AirVent,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -74,10 +75,10 @@ const Sidebar = () => {
         className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${isSideBarCollapsed ? "ps-5" : "ps-8"
           }`}
       >
-        <div>logo</div>
+        <div><AirVent /></div>
         <h1
           className={`${isSideBarCollapsed ? "hidden" : "block"
-            } font-extrabold text-2xl`}
+            } font-extrabold text-sm md:text-2xl`}
         >
           CONSULTORIA
         </h1>
@@ -95,38 +96,38 @@ const Sidebar = () => {
       <div className="flex-grow mt-8">
         <SidebarLink
           href="/dashboard"
-          icon={Layout}
-          label="Dashboard"
+          icon={House}
+          label="Página Inicial"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
           href="/inventario"
-          icon={Archive}
-          label="Inventario"
+          icon={Wrench}
+          label="Serviços"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
           href="/products"
-          icon={Clipboard}
-          label="Products"
+          icon={Info}
+          label="Sobre nós"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
           href="/users"
-          icon={User}
-          label="Users"
+          icon={ReceiptText}
+          label="Contato"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
           href="/settings"
-          icon={SlidersHorizontal}
-          label="Settings"
+          icon={CalendarClock}
+          label="Agendar Serviços"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
           href="/expenses"
-          icon={CircleDollarSign}
-          label="Expenses"
+          icon={Handshake}
+          label="Trabalha conosco"
           isCollapsed={isSideBarCollapsed}
         />
       </div>
