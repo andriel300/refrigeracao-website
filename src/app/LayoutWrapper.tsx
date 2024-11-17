@@ -1,24 +1,37 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/app/(components)/Navbar";
 import Sidebar from "@/app/(components)/Sidebar";
 import StoreProvider, { useAppSelector } from "./redux";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const Home = ({ children }: { children: React.ReactNode }) => {
   const isSideBarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
 
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
+  // Hydration check
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     } else {
       document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
     }
-  });
+  }, [isDarkMode]);
+
+  if (!hydrated) {
+    return null; // Prevent rendering during hydration
+  }
 
   return (
     <div
@@ -41,7 +54,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <StoreProvider>
-      <DashboardLayout>{children}</DashboardLayout>
+      <Home>{children}</Home>
     </StoreProvider>
   );
 };

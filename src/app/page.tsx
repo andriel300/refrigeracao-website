@@ -1,5 +1,5 @@
-import Layout from "@/app/Layout/page";
+import HomeLayout from "@/app/Layout/HomeLayout/page";
 
 export default function Home() {
-  return <Layout />;
+  return <HomeLayout />;
 }
