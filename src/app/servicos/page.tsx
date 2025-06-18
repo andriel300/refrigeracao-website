@@ -47,7 +47,7 @@ const services = [
   },
 ];
 
-const servicos = () => {
+const Servicos = () => {
   const [activeService, setActiveService] = useState(services[0]);
 
   return (
@@ -95,5 +95,5 @@ const servicos = () => {
   );
 };
 
-export default servicos;
+export default Servicos;
 

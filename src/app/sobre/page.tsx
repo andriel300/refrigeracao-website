@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Sobre = (props: Props) => {
+const Sobre = () => {
   return (
     <div>Sobre</div>
   )
