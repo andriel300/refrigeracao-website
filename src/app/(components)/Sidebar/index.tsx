@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppDispatch, useAppSelector } from "@/app/redux";
+import { useAppDispatch, useAppSelector } from "@/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import {
   Wrench,

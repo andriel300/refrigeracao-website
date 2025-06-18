@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "@/app/(components)/Navbar";
 import Sidebar from "@/app/(components)/Sidebar";
-import StoreProvider, { useAppSelector } from "./redux";
+import StoreProvider, { useAppSelector } from "@/redux";
 import { motion, AnimatePresence } from 'framer-motion';
 
 const rectangleVariants = {
