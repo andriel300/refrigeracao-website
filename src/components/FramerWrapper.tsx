@@ -1,15 +1,18 @@
 "use client";
-import React, { useState } from "react";
+
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 type FramerMotionProps = {
   children: React.ReactNode;
-  className?: any;
+  className?: string;
   y?: number;
   x?: number;
   delay?: number;
   duration?: number;
   scale?: number;
 };
+
 function FramerWrapper({
   children,
   delay = 0.25,
@@ -19,18 +22,13 @@ function FramerWrapper({
   scale = 0,
   className,
 }: FramerMotionProps) {
-  const [animateConfig, setAnimateConfig] = useState({
-    opacity: 1,
-    y: 0,
-    x: 0,
-  });
   return (
     <AnimatePresence>
       <motion.div
         initial={
           scale === 0
-            ? { opacity: 0, y: y, x: x }
-            : { opacity: 0, y: y, x: x, scale: scale }
+            ? { opacity: 0, y, x }
+            : { opacity: 0, y, x, scale }
         }
         animate={
           scale === 0
@@ -38,7 +36,7 @@ function FramerWrapper({
             : { opacity: 1, y: 0, x: 0, scale: 1 }
         }
         exit={{ opacity: 0, y: 15 }}
-        transition={{ delay: delay, duration: duration }}
+        transition={{ delay, duration }}
         className={className}
       >
         {children}
@@ -48,3 +46,4 @@ function FramerWrapper({
 }
 
 export default FramerWrapper;
+
