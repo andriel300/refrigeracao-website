@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const rectangleVariants = {
   initial: { x: "0%" },
-  animate: (i) => ({
+  animate: (i: number) => ({
     x: "100%",
     transition: {
-      delay: 0.1 * i, // Staggered delay for each rectangle
+      delay: 0.1 * i,
       duration: 0.5,
       ease: "easeIn",
     },
