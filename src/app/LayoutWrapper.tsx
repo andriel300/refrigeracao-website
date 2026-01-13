@@ -3,8 +3,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "@/app/(components)/Navbar";
 import Sidebar from "@/app/(components)/Sidebar";
+import Footer from "@/app/(components)/Footer";
+import WhatsAppButton from "@/app/(components)/WhatsAppButton";
 import StoreProvider, { useAppSelector } from "@/redux";
 import { motion, AnimatePresence } from 'framer-motion';
+import { Toaster } from "sonner";
 
 const rectangleVariants = {
   initial: { x: "0%" },
@@ -94,17 +97,28 @@ const Home = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className={`${isDarkMode ? "dark" : "light"
-        } flex bg-gray-50 text-gray-900 w-full min-h-screen`}
+        } flex bg-gray-50 text-gray-900 w-full min-h-screen flex-col`}
     >
-      {/* BARRA LATERAL DA ESQUERDA */}
-      <Sidebar />
-      <main
-        className={`flex flex-col w-full h-full py-7 px-9 bg-gray-50 ${isSideBarCollapsed ? "md:pl-24" : "md:pl-72"
-          }`}
-      >
-        <Navbar />
-        {children}
-      </main>
+      <div className="flex flex-1">
+        {/* BARRA LATERAL DA ESQUERDA */}
+        <Sidebar />
+        <main
+          className={`flex flex-col w-full h-full py-7 px-9 bg-gray-50 ${isSideBarCollapsed ? "md:pl-24" : "md:pl-72"
+            }`}
+        >
+          <Navbar />
+          {children}
+        </main>
+      </div>
+
+      {/* FOOTER */}
+      <Footer />
+
+      {/* BOTÃO FLUTUANTE WHATSAPP */}
+      <WhatsAppButton />
+
+      {/* TOAST NOTIFICATIONS */}
+      <Toaster position="top-right" richColors />
     </div>
   );
 };
