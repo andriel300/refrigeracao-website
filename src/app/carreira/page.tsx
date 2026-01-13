@@ -65,7 +65,7 @@ export default function Carreira() {
       } else {
         toast.error(result.error || "Erro ao enviar candidatura");
       }
-    } catch (_error) {
+    } catch {
       toast.error("Erro ao enviar candidatura. Tente novamente.");
     } finally {
       setIsSubmitting(false);

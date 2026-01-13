@@ -58,7 +58,7 @@ export async function POST(request: Request) {
       },
       { status: 200 }
     );
-  } catch (_error) {
+  } catch {
     return NextResponse.json(
       { error: "Erro ao processar solicitação" },
       { status: 500 }

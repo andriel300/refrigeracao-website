@@ -77,7 +77,7 @@ export default function Reserva() {
       } else {
         toast.error(result.error || "Erro ao enviar agendamento");
       }
-    } catch (_error) {
+    } catch {
       toast.error("Erro ao enviar agendamento. Tente novamente.");
     } finally {
       setIsSubmitting(false);

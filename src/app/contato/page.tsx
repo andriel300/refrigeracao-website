@@ -47,7 +47,7 @@ export default function Contato() {
       } else {
         toast.error(result.error || "Erro ao enviar mensagem");
       }
-    } catch (_error) {
+    } catch {
       toast.error("Erro ao enviar mensagem. Tente novamente.");
     } finally {
       setIsSubmitting(false);
