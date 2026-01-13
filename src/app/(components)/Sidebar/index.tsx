@@ -12,6 +12,8 @@ import {
   CalendarClock,
   ReceiptText,
   AirVent,
+  Image,
+  HelpCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -116,6 +118,18 @@ const Sidebar = () => {
           href="/contato"
           icon={ReceiptText}
           label="Contato"
+          isCollapsed={isSideBarCollapsed}
+        />
+        <SidebarLink
+          href="/galeria"
+          icon={Image}
+          label="Galeria"
+          isCollapsed={isSideBarCollapsed}
+        />
+        <SidebarLink
+          href="/faq"
+          icon={HelpCircle}
+          label="FAQ"
           isCollapsed={isSideBarCollapsed}
         />
         <SidebarLink
