@@ -7,6 +7,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Stats from "@/components/Stats";
 import FramerWrapper from "@/components/FramerWrapper";
+import Testimonials from "@/app/(components)/Testimonials";
 
 // Images for the slider
 const images = [
@@ -86,6 +87,11 @@ const HomeLayout = () => {
           </div>
         </div>
         <Stats />
+
+        {/* Depoimentos de Clientes */}
+        <div className="mt-16">
+          <Testimonials />
+        </div>
       </section>
     </FramerWrapper>
 
